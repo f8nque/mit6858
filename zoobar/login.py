@@ -33,7 +33,7 @@ class User(object):
             return None
 
     def checkCookie(self, cookie):
-        if not cookie:
+        if cookie is None:
             return
         (username, token) = cookie.rsplit("#", 1)
         if auth.check_token(username, token):
