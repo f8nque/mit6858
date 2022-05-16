@@ -1,0 +1,44 @@
+Calling f with a specific input..
+Trying concrete value: {'i': 861}
+Found input for 1234
+Find input
+Found correct input for constr2
+Correctly found no input for constr3
+Force branch
+[<symex.fuzzy.sym_eq object at 0x7f2f33936860>, <symex.fuzzy.sym_lt object at 0x7f2f33918cf8>, <symex.fuzzy.sym_lt object at 0x7f2f33918d68>, <symex.fuzzy.sym_eq object at 0x7f2f375e0eb8>, <symex.fuzzy.sym_eq object at 0x7f2f3393c208>, <symex.fuzzy.sym_eq object at 0x7f2f3393c2e8>]
+Trying to branch at dummy.py:1:
+Incorrect constraint [2] for forcing branch 0
+[<symex.fuzzy.sym_eq object at 0x7f2f33936860>, <symex.fuzzy.sym_lt object at 0x7f2f33918cf8>, <symex.fuzzy.sym_lt object at 0x7f2f33918d68>, <symex.fuzzy.sym_eq object at 0x7f2f375e0eb8>, <symex.fuzzy.sym_eq object at 0x7f2f3393c208>, <symex.fuzzy.sym_eq object at 0x7f2f3393c2e8>]
+Trying to branch at dummy.py:2:
+Incorrect constraint [1] for forcing branch 1
+Incorrect constraint [2] for forcing branch 1
+[<symex.fuzzy.sym_eq object at 0x7f2f33936860>, <symex.fuzzy.sym_lt object at 0x7f2f33918cf8>, <symex.fuzzy.sym_lt object at 0x7f2f33918d68>, <symex.fuzzy.sym_eq object at 0x7f2f375e0eb8>, <symex.fuzzy.sym_eq object at 0x7f2f3393c208>, <symex.fuzzy.sym_eq object at 0x7f2f3393c2e8>]
+Trying to branch at dummy.py:3:
+Incorrect constraint [1] for forcing branch 2
+Incorrect constraint [1] for forcing branch 2
+Incorrect constraint [2] for forcing branch 2
+[<symex.fuzzy.sym_eq object at 0x7f2f33936860>, <symex.fuzzy.sym_lt object at 0x7f2f33918cf8>, <symex.fuzzy.sym_lt object at 0x7f2f33918d68>, <symex.fuzzy.sym_eq object at 0x7f2f375e0eb8>, <symex.fuzzy.sym_eq object at 0x7f2f3393c208>, <symex.fuzzy.sym_eq object at 0x7f2f3393c2e8>]
+Trying to branch at dummy.py:4:
+Incorrect constraint [1] for forcing branch 3
+Incorrect constraint [1] for forcing branch 3
+Incorrect constraint [1] for forcing branch 3
+Incorrect constraint [2] for forcing branch 3
+[<symex.fuzzy.sym_eq object at 0x7f2f33936860>, <symex.fuzzy.sym_lt object at 0x7f2f33918cf8>, <symex.fuzzy.sym_lt object at 0x7f2f33918d68>, <symex.fuzzy.sym_eq object at 0x7f2f375e0eb8>, <symex.fuzzy.sym_eq object at 0x7f2f3393c208>, <symex.fuzzy.sym_eq object at 0x7f2f3393c2e8>]
+Trying to branch at dummy.py:5:
+Incorrect constraint [1] for forcing branch 4
+Incorrect constraint [1] for forcing branch 4
+Incorrect constraint [1] for forcing branch 4
+Incorrect constraint [1] for forcing branch 4
+Incorrect constraint [2] for forcing branch 4
+[<symex.fuzzy.sym_eq object at 0x7f2f33936860>, <symex.fuzzy.sym_lt object at 0x7f2f33918cf8>, <symex.fuzzy.sym_lt object at 0x7f2f33918d68>, <symex.fuzzy.sym_eq object at 0x7f2f375e0eb8>, <symex.fuzzy.sym_eq object at 0x7f2f3393c208>, <symex.fuzzy.sym_eq object at 0x7f2f3393c2e8>]
+Trying to branch at dummy.py:6:
+Incorrect constraint [1] for forcing branch 5
+Incorrect constraint [1] for forcing branch 5
+Incorrect constraint [1] for forcing branch 5
+Incorrect constraint [1] for forcing branch 5
+Incorrect constraint [1] for forcing branch 5
+Incorrect constraint [2] for forcing branch 5
+Testing f..
+Trying concrete value: {}
+Stopping after 1 iterations
+Missing some cases for f: {100, 70, 40, 80, 1234}

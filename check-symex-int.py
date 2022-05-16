@@ -27,7 +27,9 @@ def test_f():
 ## This test case checks that you provided the right input in symex_exercises.
 print('Calling f with a specific input..')
 v = symex_exercises.make_a_test_case()
-(r, constr, callers) = fuzzy.concolic_exec_input(test_f, v, verbose=1)
+print(v)
+(r, constr, callers) = fuzzy.concolic_exec_input(test_f, v, verbose=2)
+print("the result from function",r)
 if r == 1234:
     print("Found input for 1234")
 else:

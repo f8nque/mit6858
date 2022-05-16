@@ -1,0 +1,30 @@
+Calling f with a specific input..
+Trying concrete value: {'i': 861}
+Found input for 1234
+Find input
+Found correct input for constr2
+Correctly found no input for constr3
+Force branch
+And(Not(a == 5))
+Trying to branch at dummy.py:1:
+  (and (not (= a 5)))
+And(a == 5, Not(b < 10))
+Trying to branch at dummy.py:2:
+  (and (= a 5) (not (< b 10)))
+And(a == 5, b < 10, Not(b > 3))
+Trying to branch at dummy.py:3:
+  (and (= a 5) (< b 10) (not (> b 3)))
+And(a == 5, b < 10, b > 3, Not(a + b == 12))
+Trying to branch at dummy.py:4:
+  (and (= a 5) (< b 10) (> b 3) (not (= (+ a b) 12)))
+And(a == 5, b < 10, b > 3, a + b == 12, Not(c == 1))
+Trying to branch at dummy.py:5:
+  (and (= a 5) (< b 10) (> b 3) (= (+ a b) 12) (not (= c 1)))
+And(a == 5, b < 10, b > 3, a + b == 12, c == 1, Not(c == 2))
+Trying to branch at dummy.py:6:
+  (and (= a 5) (< b 10) (> b 3) (= (+ a b) 12) (= c 1) (not (= c 2)))
+Correct implementation of concolic_force_branch
+Testing f..
+Trying concrete value: {}
+Stopping after 1 iterations
+Missing some cases for f: {100, 70, 40, 80, 1234}

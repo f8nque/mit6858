@@ -34,6 +34,7 @@ def adduser(pdb, username, token):
   pdb.add(u)
 
 def test_stuff():
+  print("START--------------------------------------------")
   pdb = zoobar.zoodb.person_setup()
   pdb.query(zoobar.zoodb.Person).delete()
   adduser(pdb, 'alice', 'atok')
@@ -44,6 +45,12 @@ def test_stuff():
   tdb = zoobar.zoodb.transfer_setup()
   tdb.query(zoobar.zoodb.Transfer).delete()
   tdb.commit()
+
+  balances ={}
+  for p in  pdb.query(zoobar.zoodb.Person).all():
+      balances[p.username]=p.zoobars
+
+
 
   environ = {}
   environ['wsgi.url_scheme'] = 'http'
@@ -82,9 +89,31 @@ def test_stuff():
 
   ## Detect balance mismatch.
   ## When detected, call report_balance_mismatch()
+  # transfer zoobars.
+
+    
+  balance2 =sum([p.zoobars for p in pdb.query(zoobar.zoodb.Person).all()])
+  if(balance1 != balance2):
+      return report_balance_mismatch()
 
   ## Detect zoobar theft.
   ## When detected, call report_zoobar_theft()
+  final_balances = balances.copy()
+  for p in  pdb.query(zoobar.zoodb.Person).all():
+      for q in tdb.query(zoobar.zoodb.Transfer).all():
+          if q.sender == p.username:
+              final_balances[p.username] -= q.amount
+          elif q.recipient == p.username:
+              final_balances[p.username] += q.amount
+          else:
+              pass
+
+  for p in  pdb.query(zoobar.zoodb.Person).all():
+      balances[p.username]=p.zoobars
+  for k,v in balances.items():
+      if(v != final_balances[k]):
+          return report_zoobar_theft()
+  print("End ..........................................")
 
 
 fuzzy.concolic_execs(test_stuff, maxiter=500, verbose=1)

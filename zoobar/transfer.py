@@ -13,6 +13,7 @@ def transfer():
     try:
         if 'recipient' in request.form:
             zoobars = eval(request.form['zoobars'])
+            print("PERSON:   ")
             bank.transfer(g.user.person.username,
                           request.form['recipient'], zoobars)
             warning = "Sent %d zoobars" % zoobars

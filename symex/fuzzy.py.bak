@@ -576,13 +576,6 @@ class concolic_str(str):
   ## Implement symbolic versions of string length (override __len__)
   ## and contains (override __contains__).
 
-  def __len__(self):
-      l = len(self.__v)
-      return concolic_int(sym_length(ast(self)),l)
-  def __contains__(self,o):
-      res = o in self.__v
-      return concolic_bool(sym_contains(ast(self),ast(o)),res)
-
   def startswith(self, o):
     res = self.__v.startswith(o)
     return concolic_bool(sym_startswith(ast(self), ast(o)), res)
@@ -964,6 +957,7 @@ def concolic_force_branch(b, branch_conds, branch_callers, verbose = 1):
   constraint = None
   temp = branch_conds[:b]
   constraint = sym_and(*temp,sym_not(branch_conds[b]))
+  print(constraint)
   if verbose > 2:
     callers = branch_callers[b]
     print('Trying to branch at %s:%d:' % (callers[0], callers[1]))
@@ -1048,22 +1042,7 @@ def concolic_execs(func, maxiter = 100, verbose = 0):
     ##
     ##   where caller is the corresponding value from the list of call
     ##   sites returned by concolic_find_input (i.e., branch_callers).
-    for i in range(len(branch_conds)):
-        constraint = sym_and(*branch_conds[:i+1])
-        if constraint in checked:
-            continue
-        checked.add(constraint)
-        generated_inp = concolic_find_input(constraint,concrete_values.var_names())
-        if(generated_inp[0]):
-            inputs.add(generated_inp[1],branch_callers[i])
-            concrete_values.inherit(generated_inp[1])
-        neg_constraint = concolic_force_branch(i,branch_conds,branch_callers)
-        generated_inp = concolic_find_input(neg_constraint,concrete_values.var_names())
-        checked.add(neg_constraint)
-        if(generated_inp[0]):
-            concrete_values.inherit(generated_inp[1])
-            inputs.add(generated_inp[1],branch_callers[i])
-        
+
   if verbose > 0:
     print('Stopping after', iter, 'iterations')
 
